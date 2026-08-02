@@ -60,7 +60,7 @@
           try {
             let response = await fetch("api/photobooth?action=health", { cache: "no-store" });
             if (response.status === 404) {
-              response = await fetch("api/photobooth.php?action=health", { cache: "no-store" });
+              response = await fetch("local-api/photobooth.php?action=health", { cache: "no-store" });
             }
             const data = await response.json();
             if (response.ok && data.ok) {

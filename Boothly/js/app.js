@@ -1048,7 +1048,7 @@ async function apiRequest(action, payload = {}, method = "POST") {
 
   let response = await fetch(makeUrl("../api/photobooth").toString(), options);
   if (response.status === 404) {
-    response = await fetch(makeUrl("../api/photobooth.php").toString(), options);
+    response = await fetch(makeUrl("../local-api/photobooth.php").toString(), options);
   }
   const data = await response.json().catch(() => ({}));
   if (!response.ok || data.ok === false) {
