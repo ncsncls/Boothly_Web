@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boothly - Gallery</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <script defer src="../js/app.js"></script>
+  </head>
+  <body data-page="gallery">
+    <div class="page-bg"></div>
+    <main class="site-shell">
+      <div class="container" data-include="header"></div>
+
+      <section class="page">
+        <div class="container">
+          <div class="page-header">
+            <div>
+              <h1>Saved photostrip</h1>
+              <p>This link is unique to the photo you just took. Edit it, then download the final strip.</p>
+            </div>
+          </div>
+
+          <div class="gallery-workspace">
+            <section class="gallery-preview-card">
+              <div class="preview-toolbar">
+                <div class="preview-meta">
+                  <strong data-gallery-selected>No capture selected</strong>
+                  <span>Preview before download</span>
+                </div>
+                <button class="btn btn-secondary" data-go-booth>Back to booth</button>
+              </div>
+
+              <div class="gallery-preview-stage">
+                <img data-gallery-preview alt="Selected photostrip preview" class="hidden" />
+                <div class="empty-state hidden" data-gallery-empty>
+                  <div class="empty-state-icon" aria-hidden="true">
+                    <svg viewBox="0 0 64 64" role="img" focusable="false" aria-hidden="true">
+                      <path
+                        d="M20 14h24l4 6h6a4 4 0 0 1 4 4v22a4 4 0 0 1-4 4H10a4 4 0 0 1-4-4V24a4 4 0 0 1 4-4h6l4-6z"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="3"
+                        stroke-linejoin="round"
+                      />
+                      <circle cx="32" cy="36" r="10" fill="none" stroke="currentColor" stroke-width="3" />
+                      <circle cx="32" cy="36" r="4" fill="currentColor" />
+                    </svg>
+                  </div>
+                  <strong>No saved capture found.</strong>
+                  <p style="margin: 8px 0 0;">Take a photo in the booth and a unique link will open here.</p>
+                </div>
+              </div>
+
+              <div class="gallery-actions">
+                <button class="btn btn-primary" data-gallery-download>Download strip</button>
+              </div>
+            </section>
+
+            <aside class="gallery-custom-card">
+              <h3>Edit strip</h3>
+              <p>Adjust the saved strip before you download it.</p>
+
+              <div class="field">
+                <label for="gallery-title">Strip title</label>
+                <input id="gallery-title" data-gallery-title value="Boothly" />
+              </div>
+
+              <div class="control-group">
+                <div class="control-group-head">Effects</div>
+                <div class="control-group-hint" data-gallery-filter-hint>Choose an effect for the saved strip before you download it.</div>
+                <div class="chip-row">
+                  <button class="btn btn-secondary" data-gallery-filter="none">No effects</button>
+                  <button class="btn btn-secondary" data-gallery-filter="rosy">Rosy</button>
+                  <button class="btn btn-secondary" data-gallery-filter="sepia">Sepia</button>
+                  <button class="btn btn-secondary" data-gallery-filter="bnw">B&W</button>
+                  <button class="btn btn-secondary" data-gallery-filter="soft">Soft Light</button>
+                </div>
+              </div>
+
+              <div class="toggle">
+                <div class="label">
+                  <strong>Show timestamp</strong>
+                  <small>Keep the saved date on the strip.</small>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" checked data-gallery-timestamp />
+                  <span class="slider"></span>
+                </label>
+              </div>
+
+              <div class="pill-grid">
+                <div class="pill">
+                  <strong>Unique link</strong>
+                  <span>Each capture uses its own tokenized URL in this page.</span>
+                </div>
+                <div class="pill">
+                  <strong>Storage</strong>
+                  <span>The photo is loaded from the database, not from browser memory.</span>
+                </div>
+              </div>
+
+              <div class="empty-state gallery-note">
+                <strong>Tip</strong>
+                <p style="margin: 8px 0 0;">Open the unique link after each shot to review the saved photostrip.</p>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <div class="container" data-include="footer"></div>
+    </main>
+  </body>
+</html>

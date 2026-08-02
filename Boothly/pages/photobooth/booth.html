@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boothly - Photobooth</title>
+    <link rel="stylesheet" href="../../css/styles.css" />
+    <script defer src="../../js/app.js"></script>
+    <style>
+      .photobooth-page .photobooth-landing {
+        min-height: calc(100vh - 148px);
+        display: grid;
+        place-items: center;
+        padding: 48px 0;
+      }
+
+      .photobooth-page .photobooth-stack {
+        width: min(900px, 100%);
+        padding: clamp(28px, 5vw, 58px);
+        border: 1px solid rgba(255, 255, 255, 0.82);
+        border-radius: 36px;
+        background: rgba(255, 255, 255, 0.7);
+        box-shadow: 0 24px 70px rgba(54, 67, 88, 0.12);
+        text-align: center;
+      }
+
+      .photobooth-page .photobooth-kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin: 0 0 14px;
+        padding: 8px 13px;
+        border-radius: 999px;
+        background: #fff0f4;
+        color: #cf4f73;
+        font-size: 0.76rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+      }
+
+      .photobooth-page .photobooth-kicker::before {
+        content: "";
+        width: 7px;
+        height: 7px;
+        border-radius: 999px;
+        background: currentColor;
+      }
+
+      .photobooth-page .photobooth-title {
+        margin: 0;
+        font-size: clamp(2.7rem, 6vw, 4.8rem);
+        line-height: 0.96;
+      }
+
+      .photobooth-page .photobooth-copy {
+        max-width: 48ch;
+        margin: 18px auto 34px;
+        font-size: 1.05rem;
+      }
+
+      .photobooth-page .photobooth-choice-grid {
+        width: min(650px, 100%);
+        margin: 0 auto;
+        gap: 18px;
+      }
+
+      .photobooth-page .photobooth-choice {
+        min-height: 260px;
+        padding: 30px 24px;
+        border: 1px solid rgba(72, 85, 104, 0.12);
+        border-radius: 26px;
+        background: rgba(255, 255, 255, 0.92);
+        cursor: pointer;
+        transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+      }
+
+      .photobooth-page .photobooth-choice:first-child {
+        background: linear-gradient(145deg, #fff5f7, #ffffff 62%);
+      }
+
+      .photobooth-page .photobooth-choice:last-child {
+        background: linear-gradient(145deg, #f3f8ff, #ffffff 62%);
+      }
+
+      .photobooth-page .photobooth-choice:hover,
+      .photobooth-page .photobooth-choice:focus-visible {
+        transform: translateY(-7px);
+        border-color: rgba(255, 110, 143, 0.55);
+        box-shadow: 0 18px 36px rgba(61, 84, 115, 0.16);
+        outline: none;
+      }
+
+      .photobooth-page .photobooth-choice-icon {
+        width: 62px;
+        height: 62px;
+        margin-bottom: 8px;
+        border-radius: 19px;
+        background: rgba(255, 110, 143, 0.13);
+      }
+
+      .photobooth-page .photobooth-choice:last-child .photobooth-choice-icon {
+        background: rgba(134, 184, 255, 0.18);
+        color: #5185d1;
+      }
+
+      .photobooth-page .photobooth-choice-icon svg { width: 30px; height: 30px; }
+      .photobooth-page .photobooth-choice strong { font-size: 1.55rem; }
+
+      @media (max-width: 640px) {
+        .photobooth-page .photobooth-landing { padding: 26px 0; }
+        .photobooth-page .photobooth-stack { padding: 30px 20px; border-radius: 26px; }
+        .photobooth-page .photobooth-choice { min-height: 190px; }
+      }
+    </style>
+  </head>
+  <body data-page="photobooth-home">
+    <div class="page-bg"></div>
+    <main class="site-shell">
+      <div class="container" data-include="header"></div>
+
+      <section class="page photobooth-page">
+        <div class="container photobooth-landing">
+          <div class="photobooth-stack">
+            <div>
+              <p class="photobooth-kicker">Photobooth</p>
+              <h1 class="photobooth-title">Make it feel shared.</h1>
+              <p class="photobooth-copy">
+                Start a room for the two of you, or enter a code your partner shared.
+              </p>
+            </div>
+
+            <div class="photobooth-choice-grid">
+              <button class="photobooth-choice" type="button" data-pb-go="/pages/photobooth/create.html">
+                <span class="photobooth-choice-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" role="img" focusable="false" aria-hidden="true">
+                    <path d="M4 7a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7Z" fill="none" stroke="currentColor" stroke-width="1.8" />
+                    <path d="M9 5v14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                    <path d="M14 9v6M11 12h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                  </svg>
+                </span>
+                <strong>Create</strong>
+                <span>a room</span>
+              </button>
+              <button class="photobooth-choice" type="button" data-pb-go="/pages/photobooth/join.html">
+                <span class="photobooth-choice-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" role="img" focusable="false" aria-hidden="true">
+                    <path d="M7 10V8.5A5.5 5.5 0 0 1 12.5 3h4A5.5 5.5 0 0 1 22 8.5v7A5.5 5.5 0 0 1 16.5 21h-4A5.5 5.5 0 0 1 7 15.5V14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                    <path d="M3 12h12M12 8l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </span>
+                <strong>Join</strong>
+                <span>with a code</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="container" data-include="footer"></div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boothly - Join room</title>
+    <link rel="stylesheet" href="../../css/styles.css" />
+    <script defer src="../../js/app.js"></script>
+  </head>
+  <body data-page="photobooth-join">
+    <div class="page-bg"></div>
+    <main class="site-shell">
+      <div class="container" data-include="header"></div>
+
+      <section class="page photobooth-page">
+        <div class="container photobooth-landing">
+          <div class="photobooth-stack">
+            <div>
+              <p class="photobooth-kicker">Enter code</p>
+              <h1 class="photobooth-title">Join a room</h1>
+            </div>
+
+            <div class="photobooth-session-card">
+              <div class="photobooth-join-code" aria-label="Room code input">
+                <input class="photobooth-join-slot" maxlength="1" inputmode="text" autocomplete="one-time-code" data-pb-join-slot />
+                <input class="photobooth-join-slot" maxlength="1" inputmode="text" autocomplete="one-time-code" data-pb-join-slot />
+                <input class="photobooth-join-slot" maxlength="1" inputmode="text" autocomplete="one-time-code" data-pb-join-slot />
+                <input class="photobooth-join-slot" maxlength="1" inputmode="text" autocomplete="one-time-code" data-pb-join-slot />
+                <input class="photobooth-join-slot" maxlength="1" inputmode="text" autocomplete="one-time-code" data-pb-join-slot />
+              </div>
+
+              <div class="photobooth-actions">
+                <button class="btn btn-secondary" data-pb-back>Back</button>
+                <button class="btn btn-primary" data-pb-join disabled>Join</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="container" data-include="footer"></div>
+    </main>
+  </body>
+</html>

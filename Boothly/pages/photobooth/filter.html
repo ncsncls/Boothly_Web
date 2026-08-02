@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boothly - Choose filter</title>
+    <link rel="stylesheet" href="../../css/styles.css" />
+    <script defer src="../../js/app.js"></script>
+  </head>
+  <body data-page="photobooth-filter">
+    <div class="page-bg"></div>
+    <main class="site-shell">
+      <div class="container" data-include="header"></div>
+
+      <section class="page photobooth-page">
+        <div class="container photobooth-landing">
+          <div class="photobooth-stack">
+            <div>
+              <p class="photobooth-kicker">Add a filter</p>
+              <h1 class="photobooth-title">Finish the look</h1>
+              <p class="photobooth-copy">Preview the strip and pick the tone you want before downloading.</p>
+            </div>
+
+            <div class="photobooth-filter-layout">
+              <div class="photobooth-filter-preview">
+                <img data-filter-preview alt="Strip preview" />
+              </div>
+
+              <div class="photobooth-filter-grid">
+                <button class="photobooth-choice" type="button" data-filter-choice="none"><strong>None</strong><span>Natural</span></button>
+                <button class="photobooth-choice" type="button" data-filter-choice="rosy"><strong>Rosy</strong><span>Warm blush</span></button>
+                <button class="photobooth-choice" type="button" data-filter-choice="sepia"><strong>Sepia</strong><span>Vintage tone</span></button>
+                <button class="photobooth-choice" type="button" data-filter-choice="bnw"><strong>B&W</strong><span>Classic mono</span></button>
+                <button class="photobooth-choice" type="button" data-filter-choice="soft"><strong>Soft</strong><span>Gentle light</span></button>
+              </div>
+            </div>
+
+            <div class="photobooth-actions">
+              <button class="btn btn-secondary" data-filter-back>Back</button>
+              <button class="btn btn-primary" data-filter-next>Next</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="container" data-include="footer"></div>
+    </main>
+  </body>
+</html>

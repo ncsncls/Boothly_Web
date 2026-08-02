@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boothly - Create room</title>
+    <link rel="stylesheet" href="../../css/styles.css" />
+    <script defer src="../../js/app.js"></script>
+  </head>
+  <body data-page="photobooth-create">
+    <div class="page-bg"></div>
+    <main class="site-shell">
+      <div class="container" data-include="header"></div>
+
+      <section class="page photobooth-page">
+        <div class="container photobooth-landing">
+          <div class="photobooth-stack">
+            <div>
+              <p class="photobooth-kicker">Your code</p>
+              <h1 class="photobooth-title">Create a room</h1>
+            </div>
+
+            <div class="photobooth-session-card">
+              <div class="photobooth-code" aria-label="Room code">
+                <span class="photobooth-code-slot" data-pb-code-slot></span>
+                <span class="photobooth-code-slot" data-pb-code-slot></span>
+                <span class="photobooth-code-slot" data-pb-code-slot></span>
+                <span class="photobooth-code-slot" data-pb-code-slot></span>
+                <span class="photobooth-code-slot" data-pb-code-slot></span>
+              </div>
+
+              <p class="photobooth-muted" data-pb-status>Creating your room...</p>
+
+              <div class="photobooth-actions">
+                <button class="btn btn-primary" data-pb-start>Start the session now</button>
+                <button class="btn btn-secondary" data-pb-back>Back</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="container" data-include="footer"></div>
+    </main>
+  </body>
+</html>

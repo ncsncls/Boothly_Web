@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boothly - Camera</title>
+    <link rel="stylesheet" href="../../css/styles.css" />
+    <script defer src="../../js/app.js"></script>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+
+      body {
+        background: #ffffff;
+        overflow-x: hidden;
+      }
+
+      .camera-shell {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        background: #ffffff;
+      }
+
+      .camera-main {
+        flex: 1;
+        display: grid;
+        place-items: center;
+        padding: 16px 24px 12px;
+        min-height: 0;
+      }
+
+      .simple-camera {
+        width: min(100%, 680px);
+        display: grid;
+        grid-template-rows: auto auto;
+        gap: 16px;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .camera-stage {
+        position: relative;
+      }
+
+      .simple-camera video {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        height: auto;
+        max-height: min(66vh, 680px);
+        object-fit: cover;
+        background: #000;
+        border-radius: 24px;
+      }
+
+      .simple-camera .countdown {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        font: 700 clamp(4rem, 10vw, 7rem) / 1 "Georgia", serif;
+        color: #ffffff;
+        text-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+        background: rgba(0, 0, 0, 0.18);
+        border-radius: 24px;
+        pointer-events: none;
+      }
+
+      .simple-camera .camera-flash {
+        border-radius: 24px;
+      }
+
+      .simple-camera button {
+        justify-self: center;
+        min-width: 180px;
+        padding: 14px 26px;
+        font-size: 1rem;
+      }
+
+      .capture-result {
+        width: min(100%, 520px);
+        margin: 0 auto;
+        padding: 20px;
+        border-radius: 24px;
+        border: 1px solid rgba(40, 56, 80, 0.12);
+        background: #fff;
+        box-shadow: 0 14px 36px rgba(40, 56, 80, 0.08);
+        display: grid;
+        gap: 14px;
+      }
+
+      .capture-result h2 {
+        margin: 0;
+        font: 700 clamp(1.4rem, 2.5vw, 2rem) / 1.1 Georgia, serif;
+        color: #2a3648;
+      }
+
+      .capture-result p {
+        margin: 0;
+        color: #66758b;
+        line-height: 1.5;
+      }
+
+      .capture-link-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 12px;
+        align-items: center;
+      }
+
+      .capture-link-row input {
+        width: 100%;
+        box-sizing: border-box;
+        border-radius: 16px;
+        border: 1px solid rgba(40, 56, 80, 0.14);
+        padding: 12px 14px;
+        font-size: 0.98rem;
+        background: #f9fafc;
+        color: #2a3648;
+      }
+
+      .capture-result-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .capture-result .btn {
+        min-width: 140px;
+      }
+
+      .capture-strip-preview {
+        width: min(100%, 420px);
+        margin: 0 auto;
+        aspect-ratio: 1 / 1.45;
+        object-fit: contain;
+        border-radius: 18px;
+        background: #f7f8fb;
+        border: 1px solid rgba(40, 56, 80, 0.1);
+      }
+    </style>
+  </head>
+  <body data-page="booth">
+    <main class="camera-shell">
+      <div class="container" data-include="header"></div>
+
+      <section class="camera-main" aria-label="Camera capture">
+        <div class="simple-camera">
+          <div class="camera-stage">
+            <video data-self-video autoplay muted playsinline class="mirror" aria-label="Camera preview"></video>
+            <div class="countdown hidden" data-countdown></div>
+            <div class="camera-flash hidden" data-camera-flash></div>
+          </div>
+          <button class="btn btn-primary" data-capture type="button">Take photo</button>
+          <section class="capture-result hidden" data-capture-result aria-live="polite" hidden>
+            <div>
+              <h2>Photostrip ready</h2>
+              <p>Your unique link is below. Copy it or open it anytime to review the saved strip.</p>
+            </div>
+            <img class="capture-strip-preview hidden" data-capture-strip-preview alt="Photostrip preview" />
+            <div class="capture-link-row">
+              <input type="text" data-capture-link readonly aria-label="Unique photostrip link" />
+              <button class="btn btn-secondary" type="button" data-copy-link>Copy link</button>
+            </div>
+            <div class="capture-result-actions">
+              <a class="btn btn-primary" data-open-link target="_blank" rel="noreferrer">Open link</a>
+              <button class="btn btn-secondary" type="button" data-retake-photo>Take another</button>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <div class="container" data-include="footer"></div>
+    </main>
+  </body>
+</html>

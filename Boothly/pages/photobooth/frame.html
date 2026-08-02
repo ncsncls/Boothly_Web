@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boothly - Choose frame</title>
+    <link rel="stylesheet" href="../../css/styles.css" />
+    <script defer src="../../js/app.js"></script>
+  </head>
+  <body data-page="photobooth-frame">
+    <div class="page-bg"></div>
+    <main class="site-shell">
+      <div class="container" data-include="header"></div>
+
+      <section class="page photobooth-page">
+        <div class="container photobooth-landing">
+          <div class="photobooth-stack">
+            <div>
+              <p class="photobooth-kicker">Choose your frame</p>
+              <h1 class="photobooth-title">Pick a color</h1>
+              <p class="photobooth-copy">Pick the frame color that fits the strip before the camera starts.</p>
+            </div>
+
+            <div class="photobooth-choice-grid photobooth-theme-grid">
+              <button class="photobooth-choice" type="button" data-theme-choice="cream">
+                <span class="photobooth-choice-swatch is-cream" aria-hidden="true"></span>
+                <strong>Cream</strong>
+                <span>Soft and warm</span>
+              </button>
+              <button class="photobooth-choice" type="button" data-theme-choice="blush">
+                <span class="photobooth-choice-swatch is-blush" aria-hidden="true"></span>
+                <strong>Blush</strong>
+                <span>Light pink tone</span>
+              </button>
+              <button class="photobooth-choice" type="button" data-theme-choice="sky">
+                <span class="photobooth-choice-swatch is-sky" aria-hidden="true"></span>
+                <strong>Sky</strong>
+                <span>Cool and airy</span>
+              </button>
+              <button class="photobooth-choice" type="button" data-theme-choice="noir">
+                <span class="photobooth-choice-swatch is-noir" aria-hidden="true"></span>
+                <strong>Noir</strong>
+                <span>Bold black frame</span>
+              </button>
+            </div>
+
+            <p class="photobooth-muted">Selected frame: <strong data-frame-selected>cream</strong></p>
+
+            <div class="photobooth-actions">
+              <button class="btn btn-secondary" data-frame-back>Back</button>
+              <button class="btn btn-primary" data-frame-next>Next</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="container" data-include="footer"></div>
+    </main>
+  </body>
+</html>
