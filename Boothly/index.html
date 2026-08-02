@@ -58,7 +58,10 @@
 
         async function checkDatabase() {
           try {
-            const response = await fetch("api/photobooth.php?action=health", { cache: "no-store" });
+            let response = await fetch("api/photobooth?action=health", { cache: "no-store" });
+            if (response.status === 404) {
+              response = await fetch("api/photobooth.php?action=health", { cache: "no-store" });
+            }
             const data = await response.json();
             if (response.ok && data.ok) {
               window.location.replace(target);

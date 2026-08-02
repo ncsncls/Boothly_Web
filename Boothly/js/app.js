@@ -1032,17 +1032,24 @@ async function apiRequest(action, payload = {}, method = "POST") {
   const appScript = Array.from(document.scripts).find((script) =>
     script.src.endsWith("/js/app.js")
   );
-  const url = new URL("../api/photobooth.php", appScript?.src || window.location.href);
-  url.searchParams.set("action", action);
-  if (method === "GET") {
-    Object.entries(payload).forEach(([key, value]) => {
-      if (value !== undefined && value !== null && value !== "") {
-        url.searchParams.set(key, value);
-      }
-    });
-  }
+  const apiBase = appScript?.src || window.location.href;
+  const makeUrl = (endpoint) => {
+    const url = new URL(endpoint, apiBase);
+    url.searchParams.set("action", action);
+    if (method === "GET") {
+      Object.entries(payload).forEach(([key, value]) => {
+        if (value !== undefined && value !== null && value !== "") {
+          url.searchParams.set(key, value);
+        }
+      });
+    }
+    return url;
+  };
 
-  const response = await fetch(url.toString(), options);
+  let response = await fetch(makeUrl("../api/photobooth").toString(), options);
+  if (response.status === 404) {
+    response = await fetch(makeUrl("../api/photobooth.php").toString(), options);
+  }
   const data = await response.json().catch(() => ({}));
   if (!response.ok || data.ok === false) {
     throw new Error(data.message || "Request failed.");
